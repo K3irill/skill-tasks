@@ -74,4 +74,100 @@ function whatday(num) {
 
 console.log(whatday(0));
 
+let obj = {
+  name: "kail",
+  age: 18,
+};
 
+delete obj.age;
+
+console.log(obj.name);
+let fruit = "banana";
+
+let bag = {
+  [fruit]: null,
+  age: 14,
+  name: "kriper",
+};
+bag[fruit] = 15;
+
+console.log(bag[fruit]);
+
+console.log("banana" in bag);
+
+for (let i in bag) {
+  console.log(i, bag[i]);
+}
+
+let schedule = {
+  name: 21,
+};
+
+function isEmpty(obj) {
+  let result = true;
+  for (let i in obj) {
+    if (obj[i] == undefined) {
+    } else result = false;
+  }
+  return result;
+}
+console.log(isEmpty(schedule));
+
+// до вызова функции
+let menu = {
+  width: 200,
+  height: 300,
+  title: "My menu",
+};
+
+function multiplyNumeric(object) {
+  for (let i in object) {
+    if (typeof object[i] === "number") {
+      object[i] *= 2;
+    }
+  }
+}
+multiplyNumeric(menu);
+console.log(menu);
+
+// после вызова функции
+// menu = {
+//   width: 400,
+//   height: 600,
+//   title: "My menu",
+// };
+
+
+
+//-------------------Leetcode----------------------------------------------------------
+
+var createCounter = function (n) {
+  return function () {
+    return ++n;
+  };
+};
+console.log(createCounter(10));
+
+
+var expect = function (val) {
+  let obj = {
+    toBe: function (val) {
+      if (val === val && val !== null) {
+        return true;
+      } else {
+        throw new Error("Not Equal");
+      }
+    },
+    notToBe: function (val) {
+      if (val === null) {
+        return true;
+      }
+    },
+  };
+  return obj;
+};
+
+/**
+ * expect(5).toBe(5); // true
+ * expect(5).notToBe(5); // throws "Equal"
+ */
